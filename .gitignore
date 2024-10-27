@@ -123,12 +123,12 @@ celerybeat.pid
 
 # Environments
 .env
-.varhound
+.varhoundvenv
 .venv
-varhoud/
+varhoudvenv/
 venv/
 ENV/
-varhound.bak/
+varhoundvenv.bak/
 env.bak/
 venv.bak/
 
