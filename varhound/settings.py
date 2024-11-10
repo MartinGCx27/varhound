@@ -82,24 +82,24 @@ DATABASES = {
     # }
 
     # srv Dev 1
-     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'varhound',
-        'USER': 'root',
-        'PASSWORD': 'Kierovomitar1',
-        'HOST': 'localhost',
-        'PORT': ''
-     }
+     #'default': {
+     #   'ENGINE': 'django.db.backends.mysql',
+     #   'NAME': 'varhound',
+     #   'USER': 'root',
+     #   'PASSWORD': 'Kierovomitar1',
+     #   'HOST': 'localhost',
+     #   'PORT': ''
+     #}
 
      # srv Dev 2
-    # 'default': {
-    #    'ENGINE': 'django.db.backends.mysql',
-    #    'NAME': '',
-    #    'USER': 'root',
-    #    'PASSWORD': '',
-    #    'HOST': 'localhost',
-    #    'PORT': ''
-    # }
+    'default': {
+       'ENGINE': 'django.db.backends.mysql',
+       'NAME': 'varhound',
+       'USER': 'root',
+       'PASSWORD': '123456789',
+       'HOST': 'localhost',
+       'PORT': ''
+    }
 }
 
 
