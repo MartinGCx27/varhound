@@ -76,10 +76,30 @@ WSGI_APPLICATION = 'varhound.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    # 'default': {
+    #    'ENGINE': 'django.db.backends.mysql',
+    #    'NAME': BASE_DIR / 'db.sqlite3',
+    # }
+
+    # srv Dev 1
+     'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'varhound',
+        'USER': 'root',
+        'PASSWORD': 'Kierovomitar1',
+        'HOST': 'localhost',
+        'PORT': ''
+     }
+
+     # srv Dev 2
+    # 'default': {
+    #    'ENGINE': 'django.db.backends.mysql',
+    #    'NAME': '',
+    #    'USER': 'root',
+    #    'PASSWORD': '',
+    #    'HOST': 'localhost',
+    #    'PORT': ''
+    # }
 }
 
 
