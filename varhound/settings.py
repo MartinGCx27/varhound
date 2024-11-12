@@ -12,20 +12,22 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+import environ
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+#Initialiting environ library
+env = environ.Env()
+environ.Env.read_env()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-@id2zktd+2ayg_$h$1df-0!j9h*kl&510xkf4f6na8hp3_n@+2'
-
+SECRET_KEY = env.str('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env.bool('DEBUG', default=False)
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = tuple(env.list('ALLOWED_HOSTS', default=['*']))
 
 
 # Application definition
@@ -76,30 +78,15 @@ WSGI_APPLICATION = 'varhound.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #    'ENGINE': 'django.db.backends.mysql',
-    #    'NAME': BASE_DIR / 'db.sqlite3',
-    # }
-
-    # srv Dev 1
-     #'default': {
-     #   'ENGINE': 'django.db.backends.mysql',
-     #   'NAME': 'varhound',
-     #   'USER': 'root',
-     #   'PASSWORD': 'Kierovomitar1',
-     #   'HOST': 'localhost',
-     #   'PORT': ''
-     #}
-
-     # srv Dev 2
+   
     'default': {
-       'ENGINE': 'django.db.backends.mysql',
-       'NAME': 'varhound',
-       'USER': 'root',
-       'PASSWORD': '123456789',
-       'HOST': 'localhost',
-       'PORT': ''
-    }
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': env.str('DB_NAME'),
+        'USER': env.str('DB_USER'),
+        'PASSWORD': env.str('DB_PASSWRD'),
+        'HOST': env.str('DB_HOST'),
+       'PORT': env.str('DB_PORT')# CUANDO SE CONFIGURE DEBE SER env.int
+     }
 }
 
 
@@ -151,3 +138,6 @@ STATICFILES_FINDERS = [
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_REDIRECT_URL = '/home/'  # Cambia '/home/' por la ruta que prefieras
+LOGOUT_REDIRECT_URL = '/login/'
